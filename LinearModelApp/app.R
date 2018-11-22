@@ -27,7 +27,7 @@ ui <- fluidPage(
     tabPanel("Summary", fluid = TRUE,
     uiOutput("image"), 
     h5("Click on any of the districts polled by the New York Times under the Map & Plot tab! In the popup you will
-     find information about the Republican advantage compared to the actual vote margin experienced
+     find information about the projected Republican advantage compared to the actual vote margin experienced
      by the candidates against their Democratic opponents. Also included are the titles of the winning
      candidate and their respective party. In the downbar, you will find a model comparing the turnout score
      against the final weight for voters in the final wave of polling in that district. This plot also
@@ -96,8 +96,8 @@ server <- function(input, output) {
   })
   
   output$image = renderUI({
-    tags$img(src = "https://www.jasonshen.com/wp-content/uploads/2016/03/the-upshot-jason-shen-1.png", width = "100%")})
-  url <- a("sonyakalara", href="https://github.com/sonyakalara/problem_set_7")
+    tags$img(src = "https://www.de-simone.com/assets/new-york-times-logo-large-e1439227085840.jpg", width = "100%")})
+  url <- a("sonyakalara", href="https://github.com/sonyakalara/NYTlinearmodels")
   output$tab <- renderUI(tagList("Link to github repository:", url))
 }
 
