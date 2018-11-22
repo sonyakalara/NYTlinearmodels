@@ -25,8 +25,8 @@ library(moderndive)
 ui <- fluidPage(
   tabsetPanel(
     tabPanel("Summary", fluid = TRUE,
-    titlePanel("Polling Data from NYT's Upshot"), 
-    h5("Click on any one of the districts polled by the New York Times! In the popup you will
+    uiOutput("image"), 
+    h5("Click on any of the districts polled by the New York Times under the Map & Plot tab! In the popup you will
      find information about the Republican advantage compared to the actual vote margin experienced
      by the candidates against their Democratic opponents. Also included are the titles of the winning
      candidate and their respective party. In the downbar, you will find a model comparing the turnout score
@@ -95,8 +95,9 @@ server <- function(input, output) {
       }
   })
   
-  
-  url <- a("sonyakalara", href="https://github.com/sonyakalara/181113_NYTupshot")
+  output$image = renderUI({
+    tags$img(src = "https://www.jasonshen.com/wp-content/uploads/2016/03/the-upshot-jason-shen-1.png", width = "100%")})
+  url <- a("sonyakalara", href="https://github.com/sonyakalara/problem_set_7")
   output$tab <- renderUI(tagList("Link to github repository:", url))
 }
 
